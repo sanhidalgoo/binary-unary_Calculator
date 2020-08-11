@@ -1,12 +1,16 @@
 <?php
+
+$bResult = "";
+$uResult = "";
+
+// Binary Calculator
 if (isset($_POST['submit'])) {
     $firstNumber = $_POST['f_num'];
     $secondNumber = $_POST['s_num'];
     $operator = $_POST['B-operation'];
-    $bResult = "";
     switch ($operator) {
         case 'None':
-            $bResult = "Please choose operation";
+            $uResult = "Please choose operation";
             break;
 
         case "Addition":
@@ -26,6 +30,62 @@ if (isset($_POST['submit'])) {
             break;
     }
 }
+
+// UNARY CALCULATOR
+
+if (isset($_POST['usubmit'])) {
+    $number = $_POST['number'];
+    $operator = $_POST['U-operation'];
+    $uResult = "";
+    switch ($operator) {
+        case 'None':
+            $uResult = "Please choose operation";
+            break;
+
+        case "Factorial":
+            if(is_numeric($number)){
+                $uResult = "The factorial of $number is: ";  //gmp_fact($number);
+            }            
+            break;
+
+        case "Is_Prime?":
+            $uResult = isPrime($number) ? "$number is prime" : "$number is not prime";
+            break;
+
+        case "Square root":
+            $uResult = "Square root of $number is " . sqrt($number);
+            break;
+
+        case "Even/odd number?":
+            $uResult = $number % 2 == 0 ? "$number is even" : "$number is odd";
+            break;
+    }
+}
+function isPrime($number)
+{
+    if ($number == 1)
+        return false;
+
+    if ($number == 2)
+        return true;
+
+    /**
+     * if the number is divisible by two, then it's not prime and it's no longer
+     * needed to check other even numbers
+     */
+    if ($number % 2 == 0) {
+        return false;
+    }
+
+    $ceil = ceil(sqrt($number));
+    for ($i = 3; $i <= $ceil; $i = $i + 2) {
+        if ($number % $i == 0)
+            return false;
+    }
+
+    return true;
+}
+
 
 ?>
 <!DOCTYPE html>
@@ -77,15 +137,16 @@ if (isset($_POST['submit'])) {
         <h1><strong>Unary Calculator</strong></h1>
         <form method="POST">
             <br>
-            <label for="Number">Enter Number:</label>
-            <input type="number" name="num" class="form-control">
+            <label for="number">Enter Number:</label>
+            <input type="number" name="number" class="form-control">
             <br>
             <p>Choose Operator</p>
-            <select name="U-Operation" class="form-control">
-                <option>factorial</option>
-                <option>Is Prime?</option>
-                <option>square root</option>
-                <option>even/odd number?</option>
+            <select name="U-operation" class="form-control">
+                <option>None</option>
+                <option>Factorial</option>
+                <option>Is_Prime?</option>
+                <option>Square root</option>
+                <option>Even/odd number?</option>
             </select>
             <br>
             <input type="submit" name="usubmit" value="Calculate" class="btn btn-success">
@@ -95,6 +156,7 @@ if (isset($_POST['submit'])) {
         <br>
         <p><strong>The Answer is: </strong> </p>
         <div class="Answer">
+            <?= htmlentities($uResult) ?>
         </div>
     </div>
 </body>
