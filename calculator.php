@@ -1,7 +1,7 @@
 <?php
 
 $bResult = "";
-$uResult = "";
+$uResult = 0;
 
 // Binary Calculator
 if (isset($_POST['submit'])) {
@@ -44,7 +44,7 @@ if (isset($_POST['usubmit'])) {
 
         case "Factorial":
             if(is_numeric($number)){
-                $uResult = "The factorial of $number is: ";  //gmp_fact($number);
+                $uResult = "The factorial of $number is: " . factorial($number);
             }            
             break;
 
@@ -86,6 +86,13 @@ function isPrime($number)
     return true;
 }
 
+function factorial($num){ 
+    $factorial = 1; 
+    for ($i = 1; $i <= $num; $i++){ 
+      $factorial = $factorial * $i; 
+    } 
+    return $factorial; 
+} 
 
 ?>
 <!DOCTYPE html>
