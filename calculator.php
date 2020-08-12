@@ -8,6 +8,8 @@ if (isset($_POST['submit'])) {
     $firstNumber = $_POST['f_num'];
     $secondNumber = $_POST['s_num'];
     $operator = $_POST['B-operation'];
+
+    //Choose operator.
     switch ($operator) {
         case 'None':
             $uResult = "Please choose operation";
@@ -43,9 +45,9 @@ if (isset($_POST['usubmit'])) {
             break;
 
         case "Factorial":
-            if(is_numeric($number)){
+            if (is_numeric($number)) {
                 $uResult = "The factorial of $number is: " . factorial($number);
-            }            
+            }
             break;
 
         case "Is_Prime?":
@@ -61,6 +63,9 @@ if (isset($_POST['usubmit'])) {
             break;
     }
 }
+
+// Determine if a number is prime 
+
 function isPrime($number)
 {
     if ($number == 1)
@@ -86,13 +91,16 @@ function isPrime($number)
     return true;
 }
 
-function factorial($num){ 
-    $factorial = 1; 
-    for ($i = 1; $i <= $num; $i++){ 
-      $factorial = $factorial * $i; 
-    } 
-    return $factorial; 
-} 
+
+// Returns the factorial of a number
+function factorial($num)
+{
+    $factorial = 1;
+    for ($i = 1; $i <= $num; $i++) {
+        $factorial = $factorial * $i;
+    }
+    return $factorial;
+}
 
 ?>
 <!DOCTYPE html>
