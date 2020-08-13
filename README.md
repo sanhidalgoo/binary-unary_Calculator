@@ -1,5 +1,9 @@
 # binary-unary_Calculator
 
+## Introduction ##
+
+This is a simple website based on the knowledge acquired in [Building Web Applications in PHP](https://www.coursera.org/learn/web-applications-php) course from
+coursera.
 
 ### Requirements 📋
 
