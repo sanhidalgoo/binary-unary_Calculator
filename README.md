@@ -23,6 +23,10 @@ $ sudo /opt/lampp/lampp start
 3. Type in your browser localhost/binary-unary_Calculator
 
 
+### Preview ###
+
+![Login](./img/login.png "Title")
+
 ### License ###
 
 The content of this project itself is licensed under the [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.html).
