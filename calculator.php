@@ -12,7 +12,7 @@ if (isset($_POST['submit'])) {
     //Choose operator.
     switch ($operator) {
         case 'None':
-            $uResult = "Please choose operation";
+            $bResult = "Please choose operation";
             break;
 
         case "Addition":
@@ -51,7 +51,13 @@ if (isset($_POST['usubmit'])) {
             break;
 
         case "Is_Prime?":
-            $uResult = isPrime($number) ? "$number is prime" : "$number is not prime";
+
+            if($number<150){
+                $uResult = isPrime($number) ? "$number is prime" : "$number is not prime";
+            }else{
+                $uResult = "Choose a number less than 150 for this operation";
+            }
+            
             break;
 
         case "Square root":

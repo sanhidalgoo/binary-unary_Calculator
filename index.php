@@ -21,6 +21,8 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
 <!DOCTYPE html>
 <html>
 
+
+<!-- Metadata-->
 <head>
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
