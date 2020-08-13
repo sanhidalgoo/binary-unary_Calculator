@@ -25,7 +25,10 @@ $ sudo /opt/lampp/lampp start
 
 ### Preview ###
 
-![Login](./img/login.png "Title")
+![Login](./img/login.png "Login preview")
+
+![Calculator](./img/calculator.png "Calculator preview")
+
 
 ### License ###
 
