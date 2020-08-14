@@ -39,7 +39,7 @@ $ sudo /opt/lampp/lampp start
 The content of this project itself is licensed under the [GNU General Public License](https://www.gnu.org/licenses/gpl-3.0.html).
 
 
-## Author ✒️
+### Author ✒️
 
 Name: Santiago Hidalgo Ocampo
 
